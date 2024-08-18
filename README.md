@@ -32,20 +32,6 @@ This repository contains a Python implementation of the classic board game Othel
    - Player 1 is human (`X`), and Player 2 is the AI (`O`).
    - Human players enter their moves in the format `row col`, where `row` and `col` are integers between 0 and 7.
 
-## AI Details
-
-- The AI uses a basic Minimax algorithm to evaluate the best move. 
-- Depth of the Minimax algorithm is customizable in the `main.py` file .
-
-## Future Improvements
-
-- Implement the evaluation function in `bot.py` to improve AI decision-making .
-- Complete the Minimax algorithm logic for both maximizing and minimizing players .
-
-## License
-
-This project is open-source and available under the MIT License.
-
 ---
 
 You can modify this template according to any additional details or requirements you have.
