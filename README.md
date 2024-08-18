@@ -35,12 +35,12 @@ This repository contains a Python implementation of the classic board game Othel
 ## AI Details
 
 - The AI uses a basic Minimax algorithm to evaluate the best move. 
-- Depth of the Minimax algorithm is customizable in the `main.py` file (TASK 1).
+- Depth of the Minimax algorithm is customizable in the `main.py` file .
 
 ## Future Improvements
 
-- Implement the evaluation function in `bot.py` to improve AI decision-making (TASK 2).
-- Complete the Minimax algorithm logic for both maximizing and minimizing players (TASK 3).
+- Implement the evaluation function in `bot.py` to improve AI decision-making .
+- Complete the Minimax algorithm logic for both maximizing and minimizing players .
 
 ## License
 
