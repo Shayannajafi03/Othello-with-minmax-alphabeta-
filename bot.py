@@ -6,6 +6,10 @@ class OthelloAI:
         valid_moves = self.game.valid_moves(self.game.current_player if maximizing_player else -self.game.current_player)
         if depth == 0 or not valid_moves:
             return self.evaluate_board()
+        
+
+
+        
 
         # TASK 3: implement minimax algorithm
         if maximizing_player:
