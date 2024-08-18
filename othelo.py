@@ -30,22 +30,32 @@ class Othello:
         return list(set(moves))
 
     def make_move(self, row, col, player):
+        if (row, col) not in self.valid_moves(player):
+            raise ValueError("Invalid move")
+        
         self.board[row][col] = player
         directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+        flipped = []  # List to store flipped pieces
         for dr, dc in directions:
             nr, nc = row + dr, col + dc
-            if 0 <= nr < 8 and 0 <= nc < 8 and self.board[nr][nc] == -player:
-                flip_positions = []
-                while 0 <= nr < 8 and 0 <= nc < 8:
-                    if self.board[nr][nc] == 0:
-                        break
-                    if self.board[nr][nc] == player:
-                        for fr, fc in flip_positions:
-                            self.board[fr][fc] = player
-                        break
-                    flip_positions.append((nr, nc))
-                    nr += dr
-                    nc += dc
+            flip_positions = []
+            while 0 <= nr < 8 and 0 <= nc < 8:
+                if self.board[nr][nc] == 0:
+                    break
+                if self.board[nr][nc] == player:
+                    for fr, fc in flip_positions:
+                        self.board[fr][fc] = player
+                        flipped.append((fr, fc))  # Track flipped pieces
+                    break
+                flip_positions.append((nr, nc))
+                nr += dr
+                nc += dc
+        return flipped
+
+    def undo_move(self, row, col, flipped):
+        self.board[row][col] = 0  # Undo the move
+        for fr, fc in flipped:
+            self.board[fr][fc] *= -1  # Flip the pieces back
 
     def has_valid_move(self, player):
         return len(self.valid_moves(player)) > 0
