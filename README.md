@@ -33,5 +33,3 @@ This repository contains a Python implementation of the classic board game Othel
    - Human players enter their moves in the format `row col`, where `row` and `col` are integers between 0 and 7.
 
 ---
-
-You can modify this template according to any additional details or requirements you have.
