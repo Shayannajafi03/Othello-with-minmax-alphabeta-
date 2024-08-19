@@ -18,7 +18,7 @@ This repository contains a Python implementation of the classic board game Othel
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/othello-ai.git
+    git clone https://github.com/Shayannajafi03/Othello-with-minmax-alphabeta-.git
     cd othello-ai
     ```
 
