@@ -5,6 +5,8 @@ def play_othello():
     game = Othello()
     ai = OthelloAI(game)
 
+    depth = 4
+
     while True:
         game.print_board()
         if game.has_valid_move(game.current_player):
@@ -19,7 +21,7 @@ def play_othello():
                     continue
             else:  # AI player
                 print("AI is making a move...")
-                move = ai.best_move(depth = 3)   #TASK 1: find the best depth
+                move = ai.best_move(depth = depth)   #TASK 1: find the best depth
                 if move:
                     game.make_move(move[0], move[1], game.current_player)
                     print(f"AI played: {move}")

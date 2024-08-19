@@ -1,6 +1,17 @@
 class OthelloAI:
     def __init__(self, game):
         self.game = game
+        #assigns values to each square on the board based on its strategic importance
+        self.weights = [
+            [100, -20, 10,  5,  5, 10, -20, 100],
+            [-20, -50,  1,  1,  1,  1, -50, -20],
+            [ 10,   1,  5,  2,  2,  5,   1,  10],
+            [  5,   1,  2,  1,  1,  2,   1,   5],
+            [  5,   1,  2,  1,  1,  2,   1,   5],
+            [ 10,   1,  5,  2,  2,  5,   1,  10],
+            [-20, -50,  1,  1,  1,  1, -50, -20],
+            [100, -20, 10,  5,  5, 10, -20, 100]
+        ]
 
     def minimax(self, depth, maximizing_player, alpha=float('-inf'), beta=float('inf')):
         valid_moves = self.game.valid_moves(self.game.current_player if maximizing_player else -self.game.current_player)
@@ -37,13 +48,20 @@ class OthelloAI:
 
     def evaluate_board(self):
         score = 0
+        player_mobility = len(self.game.valid_moves(1))
+        opponent_mobility = len(self.game.valid_moves(-1))
         # TASK 2: implement evaluate_board
         for row in range(8):
             for col in range(8):
                 if self.game.board[row][col] == 1:
-                    score += 1
+                    score += self.weights[row][col]
                 elif self.game.board[row][col] == -1:
-                    score -= 1
+                    score -= self.weights[row][col]
+
+        # Adjust the score based on mobility (favor more mobility)
+        # This encourages the AI to prioritize moves that increase its own mobility or limit the opponent's.
+        score += 10 * (player_mobility - opponent_mobility)
+
         return score
 
     def best_move(self, depth):

@@ -4,7 +4,7 @@ class Othello:
         self.board[3][3] = self.board[4][4] = 1
         self.board[3][4] = self.board[4][3] = -1
         self.current_player = 1
-
+        
     def print_board(self):
         for row in self.board:
             print(' '.join(['.' if x == 0 else 'X' if x == 1 else 'O' for x in row]))
