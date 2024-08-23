@@ -5,7 +5,7 @@ def play_othello():
     game = Othello()
     ai = OthelloAI(game)
 
-    depth = 4
+    depth = 5
 
     while True:
         game.print_board()

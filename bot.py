@@ -3,14 +3,14 @@ class OthelloAI:
         self.game = game
         #assigns values to each square on the board based on its strategic importance
         self.weights = [
-            [100, -20, 10,  5,  5, 10, -20, 100],
-            [-20, -50,  1,  1,  1,  1, -50, -20],
-            [ 10,   1,  5,  2,  2,  5,   1,  10],
-            [  5,   1,  2,  1,  1,  2,   1,   5],
-            [  5,   1,  2,  1,  1,  2,   1,   5],
-            [ 10,   1,  5,  2,  2,  5,   1,  10],
-            [-20, -50,  1,  1,  1,  1, -50, -20],
-            [100, -20, 10,  5,  5, 10, -20, 100]
+            [10, -4, 2, 1, 1, 2, -4, 10],
+            [-4, -5, -1, -1, -1, -1, -5, -4],
+            [2, -1, 1, 0, 0, 1, -1, 2],
+            [1, -1, 0, 0, 0, 0, -1, 1],
+            [1, -1, 0, 0, 0, 0, -1, 1],
+            [2, -1, 1, 0, 0, 1, -1, 2],
+            [-4, -5, -1, -1, -1, -1, -5, -4],
+            [10, -4, 2, 1, 1, 2, -4, 10]
         ]
 
     def minimax(self, depth, maximizing_player, alpha=float('-inf'), beta=float('inf')):
@@ -60,7 +60,7 @@ class OthelloAI:
 
         # Adjust the score based on mobility (favor more mobility)
         # This encourages the AI to prioritize moves that increase its own mobility or limit the opponent's.
-        score += 10 * (player_mobility - opponent_mobility)
+        score += player_mobility - opponent_mobility
 
         return score
 
