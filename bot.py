@@ -53,9 +53,9 @@ class OthelloAI:
         for row in range(8):
             for col in range(8):
                 if self.game.board[row][col] == 1:
-                    score += 5 * self.weights[row][col]
+                    score += self.weights[row][col]
                 elif self.game.board[row][col] == -1:
-                    score -= 10 *self.weights[row][col]
+                    score -= self.weights[row][col]
 
         # Adjust the score based on mobility (favor more mobility)
         # This encourages the AI to prioritize moves that increase its own mobility or limit the opponent's.
